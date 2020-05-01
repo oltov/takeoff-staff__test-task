@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "serve2": "concurrently \"node server.js\" \"vue-cli-service serve\"",
+    "serve-node": "concurrently \"node server.js\" \"vue-cli-service serve\"",
     "start-auth": "node server.js"
   },
   "dependencies": {
