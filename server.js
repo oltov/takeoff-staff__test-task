@@ -10,26 +10,21 @@ server.use(jsonServer.defaults());
 server.use(bodyParser.json())
 
 const SECRET_KEY = '123456789'
-const expiresIn = '1h'
+const expiresIn = '10m'
 
 // создание токена 
 function createToken(payload){
     return jwt.sign(payload, SECRET_KEY, { expiresIn })
   }
 
-  // проверка токена 
-function verifyToken(token){
-    return  jwt.verify(token, SECRET_KEY, (err, decode) => decode !== undefined ?  decode : err)
-  }
-
   // проверка логина и пароля по базе
-function isAuthenticated({login, password}){
+function isAuthenticated({ login, password }){
     return userdb.users.findIndex(user => user.login === login && user.password === password) !== -1
 }
 
 server.post('/auth/login', (req, res) => {
-    const {login, password} = req.body
-    if (isAuthenticated({login, password}) === false) {
+    const { login, password } = req.body
+    if (isAuthenticated({ login, password }) === false) {
       const status = 401
       const message = 'Неверный логин или пароль'
       res.status(status).json({ status, message })
@@ -44,7 +39,7 @@ server.post('/auth/login', (req, res) => {
     if (req.headers.authorization === undefined || req.headers.authorization.split(' ')[0] !== 'Bearer') {
       const status = 400
       const message = 'Неверный заголовок авторизации'
-      res.status(status).json({status, message})
+      res.status(status).json({ status, message })
       return
     }
     try {
@@ -53,7 +48,7 @@ server.post('/auth/login', (req, res) => {
     } catch (err) {
       const status = 401
       const message = 'Ошибка: токен доступа недействителен'
-      res.status(status).json({status, message})
+      res.status(status).json({ status, message })
     }
   })
 

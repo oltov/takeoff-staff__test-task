@@ -1,6 +1,6 @@
 <template>
   <div class="container w-25 p-3">
-    <h1>Страница входа в приложение</h1>
+    <h1>Страница авторизации</h1>
     <ValidationObserver ref="observer" v-slot="{ passes }" slim>
       <form @submit.prevent="passes(logIn)">
         <div class="column">
@@ -73,8 +73,8 @@ export default {
     ValidationObserver
   },
   data: () => ({
-    login: '',
-    password: '',
+    login: "",
+    password: "",
     showPassword: false
   }),
   methods: {
@@ -87,13 +87,15 @@ export default {
         })
         .then(() => {
           this.requestData();
-          this.$router.push("/contacts").catch(() => {})
+          this.$router.push("/contacts").catch(() => {});
         })
-        .catch(response => this.$refs.observer.setErrors({
-          login: [response.message],
-          password: [response.message]
-        }))
+        .catch(response =>
+          this.$refs.observer.setErrors({
+            login: [response.message],
+            password: [response.message]
+          })
+        )
+      }
     }
   }
-};
 </script>

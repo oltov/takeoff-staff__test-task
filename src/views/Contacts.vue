@@ -18,54 +18,40 @@
         <form class="form-inline my-2 my-lg-0" @submit.prevent="addingContact">
           <div class="row">
             <div class="col">
-              <input v-model="contactUser.name" type="text" class="form-control" placeholder="Имя">
+              <input v-model="contactUser.name" type="text" class="form-control" placeholder="Имя" />
             </div>
             <div class="col">
-              <input v-model="contactUser.phoneNumber" type="text" class="form-control" placeholder="Телефонный номер">
+              <input
+                v-model="contactUser.phoneNumber"
+                type="text"
+                class="form-control"
+                placeholder="Телефонный номер"
+              />
             </div>
             <div class="col">
-            <button
-              class="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
-              Добавить контакт
-            </button>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Добавить контакт</button>
             </div>
           </div>
         </form>
       </div>
       <div>
-        <form
-          @submit.prevent="search"
-          class="form-inline my-2 my-lg-0"
-        >
-        <div class="col">
-          <input
-            v-model="searchValue"
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Поиск"
-            aria-label="Поиск"
-          />
-        </div>
+        <form @submit.prevent="search" class="form-inline my-2 my-lg-0">
           <div class="col">
-          <button
-            class="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-          >
-            Поиск контактов
-          </button>
+            <input
+              v-model="searchValue"
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Поиск"
+              aria-label="Поиск"
+            />
           </div>
-        </form>        
+          <div class="col">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск контактов</button>
+          </div>
+        </form>
       </div>
       <div class="ml-2">
-        <button
-          @click="logOut"
-          type="button"
-          class="btn btn-primary"
-        >
-          Выход
-        </button>
+        <button @click="logOut" type="button" class="btn btn-primary">Выход</button>
       </div>
     </nav>
     <button
@@ -73,9 +59,7 @@
       @click="getAllContacts"
       type="button"
       class="btn btn-primary btn-lg btn-block"
-    >
-      Загрузить все контакты
-    </button>
+    >Загрузить все контакты</button>
     <div class="d-flex flex-row flex-wrap bd-highlight mb-3 pt-4">
       <div
         v-for="(contact, index) in getContacts"
@@ -87,11 +71,11 @@
         <div class="card-body p-0">
           <div>
             <h5 v-if="!contact.isEdit" class="card-title">{{ contact.name }}</h5>
-            <input v-else type="text" v-model="contact.name">
+            <input v-else type="text" v-model="contact.name" />
           </div>
           <div>
             <p v-if="!contact.isEdit" class="card-text">{{ contact.phoneNumber }}</p>
-            <input v-else type="text" v-model="contact.phoneNumber">
+            <input v-else type="text" v-model="contact.phoneNumber" />
           </div>
           <div class="btn-group w-100" role="group" aria-label="Basic example">
             <div>
@@ -100,92 +84,87 @@
                 type="button"
                 class="btn btn-success btn-sm mr-1"
                 :class="{ 'btn-warning': contact.isEdit }"
-              >
-                {{ !contact.isEdit ? 'Редактировать' : 'Сохранить'}}
-              </button>
+              >{{ !contact.isEdit ? 'Редактировать' : 'Сохранить'}}</button>
             </div>
             <button
               @click="deleteData(contact.id)"
               type="button"
               class="btn btn-success btn-sm"
               :disabled="contact.isEdit"
-            >
-              Удалить</button>
+            >Удалить</button>
           </div>
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
 <script>
-import faker from 'faker'
-import { mapGetters, mapMutations, mapActions } from 'vuex'
-faker.locale = 'ru'
+import faker from "faker";
+import { mapGetters, mapMutations, mapActions } from "vuex";
+faker.locale = "ru";
 
 export default {
-  name: 'Contacts',
+  name: "Contacts",
   data: () => ({
     contactUser: {
       id: faker.random.uuid(),
-      name: '',
-      phoneNumber: '',
+      name: "",
+      phoneNumber: "",
       image: faker.image.avatar(),
-      isEdit : false
+      isEdit: false
     },
-    searchValue: '',
+    searchValue: "",
     isSearching: false
   }),
   computed: {
-    ...mapGetters(['getContacts'])
+    ...mapGetters(["getContacts"])
   },
   methods: {
     ...mapActions([
-      'deleteData',
-      'sendData',
-      'changeData',
-      'searchContact',
-      'requestData'
+      "deleteData",
+      "sendData",
+      "changeData",
+      "searchContact",
+      "requestData"
     ]),
-    ...mapMutations(['deleteContact', 'deleteToken']),
+    ...mapMutations(["deleteContact", "deleteToken"]),
     addingContact() {
-      const userContact = { ...this.contactUser }
-      this.sendData(userContact)
+      const userContact = { ...this.contactUser };
+      this.sendData(userContact);
       this.contactUser = {
         id: faker.random.uuid(),
-        name: '',
-        phoneNumber: '',
+        name: "",
+        phoneNumber: "",
         image: faker.image.avatar(),
-        isEdit : false
-      }
+        isEdit: false
+      };
     },
     // редактирование контакта
     // запрос происходит только когда режим редактирования true
     editingContact(contact) {
-      console.log(contact.isEdit) 
-      if(!contact.isEdit) {
-        contact.isEdit = !contact.isEdit
-        return
+      if (!contact.isEdit) {
+        contact.isEdit = !contact.isEdit;
+        return;
       } else {
-        contact.isEdit = !contact.isEdit
-        const newInfo = { ...contact }
-        this.changeData(newInfo)
+        contact.isEdit = !contact.isEdit;
+        const newInfo = { ...contact };
+        this.changeData(newInfo);
       }
     },
     search() {
-      this.searchContact(this.searchValue)
-      this.searchValue = ''
-      this.isSearching = true
+      this.searchContact(this.searchValue);
+      this.searchValue = "";
+      this.isSearching = true;
     },
     getAllContacts() {
-      this.requestData()
-      this.isSearching = false
+      this.requestData();
+      this.isSearching = false;
     },
     logOut() {
-      this.deleteToken()
-      this.$router.push('/login').catch(() => {})
+      this.deleteToken();
+      this.$router.push("/login").catch(() => {});
     }
   }
-}
+};
 </script>
