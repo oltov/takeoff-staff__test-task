@@ -108,7 +108,7 @@ export default new Vuex.Store({
     },
     searchContact({ state, commit }, value) {
       console.log(value)
-      fetch(`${state.searchURL}${value}`, {
+      fetch(state.searchURL + value, {
         headers: {
           'Authorization': 'Bearer ' + state.authToken,
         },

@@ -16,7 +16,7 @@
     },
     {
       "id": "a38be931-d3ad-4ca7-bc65-977b8041989c",
-      "name": "hjghjghjghj97867",
+      "name": "Вася",
       "phoneNumber": "7777454545",
       "image": "https://s3.amazonaws.com/uifaces/faces/twitter/bradenhamm/128.jpg",
       "isEdit": false
@@ -24,7 +24,7 @@
     {
       "id": "7a57f99c-9b90-4930-b9b3-a86049dcb079",
       "name": "Алексей Николай",
-      "phoneNumber": "+78988888888",
+      "phoneNumber": "+789888fghfghfh88888",
       "image": "https://s3.amazonaws.com/uifaces/faces/twitter/jacksonlatka/128.jpg",
       "isEdit": false
     },
@@ -47,6 +47,13 @@
       "name": "Николай ",
       "phoneNumber": "000000000",
       "image": "https://s3.amazonaws.com/uifaces/faces/twitter/rickyyean/128.jpg",
+      "isEdit": false
+    },
+    {
+      "id": "e7989cf3-a066-404d-8f96-7ea1b19b85c1",
+      "name": "Катя Штанова",
+      "phoneNumber": "+5555555555",
+      "image": "https://s3.amazonaws.com/uifaces/faces/twitter/2fockus/128.jpg",
       "isEdit": false
     }
   ]

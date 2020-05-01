@@ -15,7 +15,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" @submit.prevent="addingContact">
           <div class="row">
             <div class="col">
               <input v-model="contactUser.name" type="text" class="form-control" placeholder="Имя">
@@ -25,7 +25,6 @@
             </div>
             <div class="col">
             <button
-              @click="addingContact"
               class="btn btn-outline-success my-2 my-sm-0"
               type="submit"
             >
