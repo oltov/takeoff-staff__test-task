@@ -1,0 +1,46 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Максим Скамейкин",
+      "phoneNumber": "+71234587890",
+      "image": "https://s3.amazonaws.com/uifaces/faces/twitter/sterlingrules/128.jpg",
+      "isEdit": false
+    },
+    {
+      "id": 3,
+      "name": "Алена Шоколадова",
+      "phoneNumber": "55555222",
+      "image": "https://s3.amazonaws.com/uifaces/faces/twitter/buddhasource/128.jpg",
+      "isEdit": false
+    },
+    {
+      "id": "a38be931-d3ad-4ca7-bc65-977b8041989c",
+      "name": "hjghjghjghj97867",
+      "phoneNumber": "7777454545",
+      "image": "https://s3.amazonaws.com/uifaces/faces/twitter/bradenhamm/128.jpg",
+      "isEdit": false
+    },
+    {
+      "id": "7a57f99c-9b90-4930-b9b3-a86049dcb079",
+      "name": "Алексей Николай",
+      "phoneNumber": "+78988888888",
+      "image": "https://s3.amazonaws.com/uifaces/faces/twitter/jacksonlatka/128.jpg",
+      "isEdit": false
+    },
+    {
+      "id": "9817850f-aef2-4e8d-8bda-1245b14e3457",
+      "name": "Игорь Петров",
+      "phoneNumber": "123456789",
+      "image": "https://s3.amazonaws.com/uifaces/faces/twitter/emmeffess/128.jpg",
+      "isEdit": false
+    },
+    {
+      "id": "60088750-bd2c-4ad3-b4ca-002756bf4e37",
+      "name": "asdfasf",
+      "phoneNumber": "asdfsadf",
+      "image": "https://s3.amazonaws.com/uifaces/faces/twitter/ffbel/128.jpg",
+      "isEdit": false
+    }
+  ]
+}
