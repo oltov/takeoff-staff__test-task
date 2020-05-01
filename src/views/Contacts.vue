@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Меню контактов</a>
+      <a class="navbar-brand">Меню контактов</a>
       <button
         class="navbar-toggler"
         type="button"
