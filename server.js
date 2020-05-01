@@ -12,17 +12,17 @@ server.use(bodyParser.json())
 const SECRET_KEY = '123456789'
 const expiresIn = '1h'
 
-// Create a token from a payload 
+// создание токена 
 function createToken(payload){
     return jwt.sign(payload, SECRET_KEY, { expiresIn })
   }
 
-  // Verify the token 
+  // проверка токена 
 function verifyToken(token){
     return  jwt.verify(token, SECRET_KEY, (err, decode) => decode !== undefined ?  decode : err)
   }
 
-  // Check if the user exists in database
+  // проверка логина и пароля по базе
 function isAuthenticated({login, password}){
     return userdb.users.findIndex(user => user.login === login && user.password === password) !== -1
 }

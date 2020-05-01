@@ -41,6 +41,13 @@
       "phoneNumber": "asdfsadf",
       "image": "https://s3.amazonaws.com/uifaces/faces/twitter/ffbel/128.jpg",
       "isEdit": false
+    },
+    {
+      "id": "c0358b33-c390-4637-a2ab-2caaf63d5bfd",
+      "name": "Николай ",
+      "phoneNumber": "000000000",
+      "image": "https://s3.amazonaws.com/uifaces/faces/twitter/rickyyean/128.jpg",
+      "isEdit": false
     }
   ]
 }
