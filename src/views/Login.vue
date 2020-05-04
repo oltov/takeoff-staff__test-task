@@ -1,50 +1,52 @@
 <template>
-  <div class="container w-25 p-3">
-    <h1>Страница авторизации</h1>
+  <v-card width="400" class="mx-auto mt-12">
+    <v-card-title>
+      <h1 class="display-1">Авторизация</h1>
+    </v-card-title>
+    <v-card-text>
     <ValidationObserver ref="observer" v-slot="{ passes }" slim>
       <form @submit.prevent="passes(logIn)">
-        <div class="column">
-          <div class="form-group">
-            <ValidationProvider
-              rules="required|alpha"
-              v-slot="{ errors }"
-              name="Логин"
-              mode="eager"
-              vid="login"
-            >
-              <v-text-field
-                label="Логин"
-                :error-messages="errors"
-                type="text"
-                prepend-icon="mdi-account-circle"
-                v-model="login"
-              />
-            </ValidationProvider>
-          </div>
-          <div class="form-group">
-            <ValidationProvider
-              rules="required|alpha"
-              v-slot="{ errors }"
-              name="Пароль"
-              mode="eager"
-              vid="password"
-            >
-              <v-text-field
-                label="Пароль"
-                :error-messages="errors"
-                :type="showPassword ? 'text' : 'Password'"
-                prepend-icon="mdi-lock"
-                :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                @click:append="showPassword = !showPassword"
-                v-model="password"
-              />
-            </ValidationProvider>
-          </div>
-          <button type="submit" class="btn btn-primary">Войти</button>
-        </div>
+        
+          <ValidationProvider
+            rules="required|alpha"
+            v-slot="{ errors }"
+            name="Логин"
+            mode="eager"
+            vid="login"
+          >
+            <v-text-field
+              label="Логин"
+              :error-messages="errors"
+              type="text"
+              prepend-icon="mdi-account-circle"
+              v-model="login"
+            />
+          </ValidationProvider>
+        
+          <ValidationProvider
+            rules="required|alpha"
+            v-slot="{ errors }"
+            name="Пароль"
+            mode="eager"
+            vid="password"
+          >
+            <v-text-field
+              label="Пароль"
+              :error-messages="errors"
+              :type="showPassword ? 'text' : 'Password'"
+              prepend-icon="mdi-lock"
+              :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="showPassword = !showPassword"
+              v-model="password"
+            />
+          </ValidationProvider>
+        <v-card-actions class="mt-2">
+          <v-btn type="submit" color="info">Войти</v-btn>
+        </v-card-actions>
       </form>
     </ValidationObserver>
-  </div>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
