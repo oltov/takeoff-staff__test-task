@@ -65,7 +65,7 @@ localize("ru", ru);
 extend("required", required);
 extend("alpha", alpha);
 extend("alpha", {
-  message: "Поле Логин может содержать только строчные буквы"
+  message: "Поле может содержать только строчные буквы"
 });
 
 export default {
