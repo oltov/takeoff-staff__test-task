@@ -1,5 +1,8 @@
 <template>
   <v-card elevation="0">
+
+    <!-- ===== шапка ===== -->
+
     <v-card
       max-width="1100"
       class="d-flex flex-column justify-space-between align-center pa-5 flex-sm-row mx-auto cyan lighten-1"
@@ -11,6 +14,7 @@
         <v-spacer />
 
         <!-- ===== форма поиска контактов ===== -->
+
         <ValidationObserver v-slot="{ handleSubmit }" slim>
           <v-form @submit.prevent="handleSubmit(search)">
             <v-row class="mt-0">
@@ -43,19 +47,20 @@
         <v-spacer />
 
         <!-- ===== кнопка выхода из приложения ===== -->
+
         <v-btn class="caption mt-4 mt-sm-0" @click="logOut" color="cyan darken-2">
           <v-icon dark left>mdi-arrow-left</v-icon>выход
         </v-btn>
+
     </v-card>
+
+    <!-- ===== форма добавления контактов ===== -->
 
     <v-card
       max-width="1100"
       class="d-flex justify-space-around px-12 pt-2 pb-2 mx-auto"
       color="cyan lighten-4"
     >
-
-      <!-- ===== форма добавления контактов ===== -->
-
       <ValidationObserver v-slot="{ handleSubmit }" slim>
         <v-form @submit.prevent="handleSubmit(addingContact)">
           <v-row class="flex-column flex-sm-row">
@@ -94,10 +99,10 @@
         </v-form>
       </ValidationObserver>
 
-
     </v-card>
 
     <!-- ===== блок с контактами ===== -->
+
     <v-card
       max-width="1100"
       class="d-flex flex-wrap mx-auto"
@@ -138,13 +143,18 @@
         </v-card-actions>
       </v-card>
     </v-card>
+
+    <!-- ===== алерт на случай если контакт не найден ===== -->
+
     <v-alert
       v-if="getContacts.length < 1 && isSearching"
       type="info"
       max-width="1100"
       class="mx-auto"
     >
-      Контакт не найден, попробуйте ввести другое имя</v-alert>
+      Контакт не найден, попробуйте ввести другое имя
+    </v-alert>
+
   </v-card>
 </template>
 
