@@ -1,6 +1,6 @@
 <template>
   <v-card elevation="0">
-    <v-app-bar max-width="1100" app class="mx-auto cyan lighten-1" dark>
+    <v-app-bar max-width="1100" app class="d-xs-flex flex-xs-column mx-auto cyan lighten-1" dark>
       <v-toolbar-title>
         Контакты
       </v-toolbar-title>
@@ -57,17 +57,18 @@
 
       <ValidationObserver v-slot="{ handleSubmit }" slim>
         <v-form @submit.prevent="handleSubmit(addingContact)">
-          <v-row class="mt-5">
+          <v-row class="flex-column flex-sm-row mt-5">
             <ValidationProvider
               rules="alpha"
               v-slot="{ errors }"
               name="Имя"
               mode="eager"
+              class="mx-auto mr-sm-5"
             >
               <v-text-field
                 v-model="contactUser.name"
                 :error-messages="errors"
-                class="mr-5"
+                class="mr-sm-5"
                 placeholder="Имя"
               />
             </ValidationProvider>
@@ -77,6 +78,7 @@
                 v-slot="{ errors }"
                 name="Телефон"
                 mode="eager"
+                class="mx-auto mr-sm-5"
               >
               <v-text-field
                 v-model="contactUser.phoneNumber"
@@ -84,7 +86,7 @@
                 placeholder="Телефон"
               />
             </ValidationProvider>
-            <v-card-actions>
+            <v-card-actions class="mx-auto">
               <v-btn class="caption" type="submit" color="cyan darken-1" dark>добавить контакт</v-btn>
             </v-card-actions>
           </v-row>
@@ -99,13 +101,12 @@
       max-width="1100"
       class="d-flex flex-wrap mx-auto"
       color="yellow lighten-5"
-      outlined="false"
     >
       <v-card
         width="200"
         v-for="(contact, index) in getContacts"
         :key="index"
-        class="pa-1 mr-4 mb-4"
+        class="mx-auto mb-4 pa-1 mx-md-0 mr-md-4"
       >
         <v-img :src="contact.image" height="200px" class="white--text align-end" :alt="contact.name" />
         <div>
