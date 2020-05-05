@@ -21,7 +21,6 @@ export default new Vuex.Store({
   },
   mutations: {
     refreshContacts(state, data) {
-      console.log(data)
       state.contacts = data
     },
     deleteContact(state, id) {
@@ -107,7 +106,6 @@ export default new Vuex.Store({
       .catch(() => console.log('ошибка добавления'))
     },
     searchContact({ state, commit }, value) {
-      console.log(value)
       fetch(state.searchURL + value, {
         headers: {
           'Authorization': 'Bearer ' + state.authToken,
