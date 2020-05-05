@@ -1,55 +1,56 @@
 <template>
   <v-card elevation="0">
-    <v-app-bar max-width="1100" app class="d-xs-flex flex-xs-column mx-auto cyan lighten-1" dark>
-      <v-toolbar-title>
-        Контакты
-      </v-toolbar-title>
+    <v-card
+      max-width="1100"
+      class="d-flex flex-column justify-space-between align-center pa-5 flex-sm-row mx-auto cyan lighten-1"
+      dark>
+        <v-card-title>
+          Контакты
+        </v-card-title>
 
-      <v-spacer />
+        <v-spacer />
 
-      <!-- ===== форма поиска контактов ===== -->
-
-      <ValidationObserver v-slot="{ handleSubmit }" slim>
-        <v-form @submit.prevent="handleSubmit(search)">
-          <v-row class="mt-0">
-            <ValidationProvider
-                rules="alpha"
-                v-slot="{ errors }"
-                name="Пароль"
-                mode="eager"
-                vid="password"
+        <!-- ===== форма поиска контактов ===== -->
+        <ValidationObserver v-slot="{ handleSubmit }" slim>
+          <v-form @submit.prevent="handleSubmit(search)">
+            <v-row class="mt-0">
+              <ValidationProvider
+                  rules="alpha"
+                  v-slot="{ errors }"
+                  name="Пароль"
+                  mode="eager"
+                  vid="password"
+                >
+                <v-text-field
+                  v-model="searchValue"
+                  :error-messages="errors"
+                  class="mt-4"
+                />
+              </ValidationProvider>
+              <v-card-actions>
+                <v-btn class="caption" type="submit" color="cyan darken-1" dark>поиск</v-btn>
+              </v-card-actions>
+              <v-card-actions
+                v-if="isSearching"
+                @click="getAllContacts"
               >
-              <v-text-field
-                v-model="searchValue"
-                :error-messages="errors"
-                class="mt-6"
-              />
-            </ValidationProvider>
-            <v-card-actions>
-              <v-btn class="caption" type="submit" color="cyan darken-1" dark>поиск</v-btn>
-            </v-card-actions>
-            <v-card-actions
-              v-if="isSearching"
-              @click="getAllContacts"
-            >
-              <v-btn class="caption" type="submit" color="cyan darken-1" dark>показать все контакты</v-btn>
-            </v-card-actions>
-          </v-row>
-        </v-form>
-      </ValidationObserver>
+                <v-btn class="caption" type="submit" color="cyan darken-1" dark>показать все контакты</v-btn>
+              </v-card-actions>
+            </v-row>
+          </v-form>
+        </ValidationObserver>
 
-      <v-spacer />
+        <v-spacer />
 
-      <!-- ===== кнопка выхода из приложения ===== -->
-      <v-btn class="caption" @click="logOut" color="cyan darken-2">
-        <v-icon dark left>mdi-arrow-left</v-icon>выход
-      </v-btn>
-
-    </v-app-bar>
+        <!-- ===== кнопка выхода из приложения ===== -->
+        <v-btn class="caption mt-4 mt-sm-0" @click="logOut" color="cyan darken-2">
+          <v-icon dark left>mdi-arrow-left</v-icon>выход
+        </v-btn>
+    </v-card>
 
     <v-card
       max-width="1100"
-      class="d-flex justify-space-around pa-12 mt-6 mx-auto"
+      class="d-flex justify-space-around pa-12 mx-auto"
       color="cyan lighten-4"
     >
 
