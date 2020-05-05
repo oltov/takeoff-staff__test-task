@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card elevation="0">
     <v-app-bar max-width="1100" app class="mx-auto cyan lighten-1" dark>
       <v-toolbar-title>
         Контакты
@@ -94,13 +94,15 @@
 
     </v-card>
 
+    <!-- ===== блок с контактами ===== -->
     <v-card
       max-width="1100"
       class="d-flex flex-wrap mx-auto"
       color="yellow lighten-5"
+      outlined="false"
     >
       <v-card
-        max-width="200"
+        width="200"
         v-for="(contact, index) in getContacts"
         :key="index"
         class="pa-1 mr-4 mb-4"
@@ -135,7 +137,7 @@
       </v-card>
     </v-card>
     <v-alert
-      v-if="getContacts.length < 1"
+      v-if="getContacts.length < 1 && isSearching"
       type="info"
       max-width="1100"
       class="mx-auto"
