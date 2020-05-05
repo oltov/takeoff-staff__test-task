@@ -6,7 +6,7 @@
     <v-card-text>
     <ValidationObserver ref="observer" v-slot="{ passes }" slim>
       <form @submit.prevent="passes(logIn)">
-        
+
           <ValidationProvider
             rules="required|alpha"
             v-slot="{ errors }"
@@ -22,7 +22,7 @@
               v-model="login"
             />
           </ValidationProvider>
-        
+
           <ValidationProvider
             rules="required|alpha"
             v-slot="{ errors }"
