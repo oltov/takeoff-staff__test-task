@@ -15,7 +15,7 @@
           <v-form @submit.prevent="handleSubmit(search)">
             <v-row class="mt-0">
               <ValidationProvider
-                  rules="alpha"
+                  rules="alpha_num"
                   v-slot="{ errors }"
                   name="Пароль"
                   mode="eager"
@@ -50,7 +50,7 @@
 
     <v-card
       max-width="1100"
-      class="d-flex justify-space-around pa-12 mx-auto"
+      class="d-flex justify-space-around px-12 pt-2 pb-2 mx-auto"
       color="cyan lighten-4"
     >
 
@@ -58,9 +58,9 @@
 
       <ValidationObserver v-slot="{ handleSubmit }" slim>
         <v-form @submit.prevent="handleSubmit(addingContact)">
-          <v-row class="flex-column flex-sm-row mt-5">
+          <v-row class="flex-column flex-sm-row">
             <ValidationProvider
-              rules="alpha"
+              rules="alpha_spaces"
               v-slot="{ errors }"
               name="Имя"
               mode="eager"
@@ -75,7 +75,7 @@
             </ValidationProvider>
 
             <ValidationProvider
-                rules="alpha"
+                rules="numeric"
                 v-slot="{ errors }"
                 name="Телефон"
                 mode="eager"
@@ -101,7 +101,7 @@
     <v-card
       max-width="1100"
       class="d-flex flex-wrap mx-auto"
-      color="yellow lighten-5"
+      color="yellow lighten-5 pa-2"
     >
       <v-card
         width="200"
@@ -157,7 +157,12 @@ import {
 } from "vee-validate";
 import ru from "vee-validate/dist/locale/ru.json";
 
-import { required, alpha } from "vee-validate/dist/rules";
+import { required, alpha_num, alpha_spaces, digits, numeric } from "vee-validate/dist/rules";
+
+extend('required', required);
+extend('alpha_num', alpha_num);
+extend('alpha_spaces', alpha_spaces);
+extend('numeric', numeric);
 
 import faker from "faker";
 import { mapGetters, mapMutations, mapActions } from "vuex";

@@ -48,6 +48,13 @@
       "phoneNumber": "+5555555555",
       "image": "https://s3.amazonaws.com/uifaces/faces/twitter/2fockus/128.jpg",
       "isEdit": false
+    },
+    {
+      "id": "b7aff3e0-c661-4331-9f7f-30cc496964c4",
+      "name": "николай Петрович",
+      "phoneNumber": "01205550000",
+      "image": "https://s3.amazonaws.com/uifaces/faces/twitter/SULiik/128.jpg",
+      "isEdit": false
     }
   ]
 }
